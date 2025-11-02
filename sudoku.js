@@ -363,6 +363,12 @@ function createGameGrid() {
                 cell.tabIndex = 0; // フォーカス可能にする
                 cell.addEventListener('input', (e) => handleInput(e, row, col));
                 cell.addEventListener('focus', (e) => handleFocus(e, row, col));
+
+                // 既存の候補メモに背景色を適用
+                if (userSolution[row][col] && userSolution[row][col].length > 1) {
+                    cell.classList.add('candidate');
+                    adjustFontSize(cell);
+                }
             }
 
             // すべてのセルにキーボードナビゲーションを追加
@@ -404,17 +410,21 @@ function handleInput(event, row, col) {
     adjustFontSize(event.target);
 
     // バリデーション（1文字の場合のみ）
-    if (value.length === 1) {
+    event.target.classList.remove('invalid');
+    event.target.classList.remove('candidate');
+
+    if (value.length === 0) {
+        // 空白の場合は何もしない
+    } else if (value.length === 1) {
         const numValue = parseInt(value);
         // 一時的に数値配列を作成してチェック
         const tempBoard = userSolution.map(r => r.map(c => c.length === 1 ? parseInt(c) : 0));
         if (!isValidMove(tempBoard, row, col, numValue)) {
             event.target.classList.add('invalid');
-        } else {
-            event.target.classList.remove('invalid');
         }
     } else {
-        event.target.classList.remove('invalid');
+        // 複数候補の場合は薄ピンク
+        event.target.classList.add('candidate');
     }
 }
 

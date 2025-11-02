@@ -259,6 +259,11 @@ button:disabled {
     color: #333;
 }
 
+.cell.candidate {
+    background: #ffe0f0;
+    color: #333;
+}
+
 .cell.border-left {
     border-left: 3px solid #333;
 }
