@@ -791,8 +791,8 @@ function checkSolution() {
         // ユーザーの入力グリッドを作成（ユーザーの解答をそのまま表示）
         createComparisonGrid('user-grid', userSolution, true);
 
-        // 正解グリッドを作成（ユーザーの解答を表示）
-        createComparisonGrid('answer-grid', userSolution, false);
+        // 正解グリッドを作成（生成された答えを表示）
+        createComparisonGrid('answer-grid', currentSolution, false);
 
         messageEl.textContent = '間違っている箇所があります。正誤を確認してください。';
         messageEl.className = 'message-error';
