@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数独アプリ</title>
+    <title>ナンプレアプリ</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>数独アプリ</h1>
+        <h1 data-i18n="app-title">ナンプレアプリ</h1>
 
         <!-- メインメニュー -->
         <div id="main-menu" class="screen">
@@ -23,32 +23,41 @@
 
         <!-- ゲーム設定画面 -->
         <div id="game-setup" class="screen hidden">
-            <h2>ゲーム設定</h2>
+            <h2 data-i18n="setup-title">ゲーム設定</h2>
 
             <div class="setting-group">
-                <label for="difficulty">難易度:</label>
+                <label for="difficulty" data-i18n="setup-difficulty">難易度:</label>
                 <select id="difficulty">
-                    <option value="veryeasy">超簡単 (すべて確定可能・一意解保証)</option>
-                    <option value="easy">簡単 (30-35個の空白・複数解の可能性あり)</option>
-                    <option value="medium">普通 (36-45個の空白・複数解の可能性あり)</option>
-                    <option value="hard">難しい (46-55個の空白・複数解の可能性あり)</option>
+                    <option value="veryeasy">超簡単 (25-29マス, 深さ0)</option>
+                    <option value="easy">簡単 (30-35マス, 深さ1)</option>
+                    <option value="medium">普通 (36-45マス, 深さ2)</option>
+                    <option value="hard">難しい (46-55マス, 深さ3-5)</option>
+                    <option value="custom">カスタム</option>
                 </select>
+            </div>
+
+            <div class="setting-group" id="custom-settings" style="display: none;">
+                <label for="empty-cells" data-i18n="setup-empty-cells">空きマス数:</label>
+                <input type="number" id="empty-cells" min="17" max="64" value="40">
+
+                <label for="depth" data-i18n="setup-depth">仮置き深さ:</label>
+                <input type="number" id="depth" min="0" max="10" value="2">
             </div>
 
             <div class="setting-group">
                 <label>
                     <input type="checkbox" id="hint-enabled" checked>
-                    ヒント機能を有効にする
+                    <span data-i18n="setup-hint-enable">ヒント機能を有効にする</span>
                 </label>
             </div>
 
             <div class="setting-group" id="hint-limit-group">
-                <label for="hint-limit">ヒント回数:</label>
+                <label for="hint-limit" data-i18n="setup-hint-limit">ヒント回数:</label>
                 <input type="number" id="hint-limit" min="1" max="10" value="3">
             </div>
 
-            <button onclick="startGame()">ゲーム開始</button>
-            <button onclick="showMainMenu()">戻る</button>
+            <button onclick="startGame()" data-i18n="btn-start">ゲーム開始</button>
+            <button onclick="showMainMenu()" data-i18n="btn-back">戻る</button>
         </div>
 
         <!-- ゲーム画面 -->
@@ -56,7 +65,7 @@
             <div class="game-info">
                 <div id="difficulty-display"></div>
                 <div id="hint-info"></div>
-                <div id="timer">時間: <span id="time">00:00</span></div>
+                <div id="timer"><span data-i18n="game-time">時間</span>: <span id="time">00:00</span></div>
             </div>
 
             <div id="sudoku-grid"></div>
@@ -65,21 +74,21 @@
             <div id="solution-comparison" class="hidden">
                 <div class="comparison-container">
                     <div class="comparison-grid-wrapper">
-                        <h3>あなたの入力</h3>
+                        <h3 data-i18n="comparison-user">あなたの入力</h3>
                         <div id="user-grid"></div>
                     </div>
                     <div class="comparison-grid-wrapper">
-                        <h3>正解</h3>
+                        <h3 data-i18n="comparison-answer">正解</h3>
                         <div id="answer-grid"></div>
                     </div>
                 </div>
             </div>
 
             <div class="game-controls">
-                <button onclick="useHint()" id="hint-btn">ヒントを使う</button>
-                <button onclick="checkSolution()">答え合わせ</button>
-                <button onclick="resetGame()">リセット</button>
-                <button onclick="showGameSetup()">戻る</button>
+                <button onclick="useHint()" id="hint-btn" data-i18n="btn-use-hint">ヒントを使う</button>
+                <button onclick="checkSolution()" data-i18n="btn-check">答え合わせ</button>
+                <button onclick="resetGame()" data-i18n="btn-reset">リセット</button>
+                <button onclick="showGameSetup()" data-i18n="btn-back">戻る</button>
             </div>
 
             <div id="message"></div>
@@ -87,15 +96,15 @@
 
         <!-- 手動入力画面 -->
         <div id="manual-input" class="screen hidden">
-            <h2>問題を入力してください</h2>
-            <p>空白のマスは0を入力してください</p>
+            <h2 data-i18n="manual-title">問題を入力してください</h2>
+            <p data-i18n="manual-description">空白のマスは0を入力してください</p>
 
             <div id="input-grid"></div>
 
             <div class="game-controls">
-                <button onclick="solvePuzzle()">この問題を解く</button>
-                <button onclick="clearInputGrid()">クリア</button>
-                <button onclick="showMainMenu()">戻る</button>
+                <button onclick="solvePuzzle()" data-i18n="btn-solve">この問題を解く</button>
+                <button onclick="clearInputGrid()" data-i18n="btn-clear">クリア</button>
+                <button onclick="showMainMenu()" data-i18n="btn-back">戻る</button>
             </div>
 
             <div id="input-message"></div>

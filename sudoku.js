@@ -12,16 +12,147 @@ let currentLanguage = 'ja'; // 現在の言語
 // 翻訳データ
 const translations = {
     ja: {
+        // アプリタイトル
+        'app-title': 'ナンプレアプリ',
+
+        // メインメニュー
         'menu-title': 'モード選択',
         'menu-play': '問題を解く',
-        'menu-solve': '問題を入力して解かせる'
+        'menu-solve': '問題を入力して解かせる',
+
+        // ゲーム設定
+        'setup-title': 'ゲーム設定',
+        'setup-difficulty': '難易度:',
+        'difficulty-veryeasy': '超簡単',
+        'difficulty-easy': '簡単',
+        'difficulty-medium': '普通',
+        'difficulty-hard': '難しい',
+        'difficulty-custom': 'カスタム',
+        'difficulty-veryeasy-desc': '超簡単 (25-29マス, 深さ0)',
+        'difficulty-easy-desc': '簡単 (30-35マス, 深さ1)',
+        'difficulty-medium-desc': '普通 (36-45マス, 深さ2)',
+        'difficulty-hard-desc': '難しい (46-55マス, 深さ3-5)',
+        'difficulty-custom-desc': 'カスタム',
+        'setup-empty-cells': '空きマス数:',
+        'setup-depth': '仮置き深さ:',
+        'setup-hint-enable': 'ヒント機能を有効にする',
+        'setup-hint-limit': 'ヒント回数:',
+        'btn-start': 'ゲーム開始',
+        'btn-back': '戻る',
+
+        // ゲーム画面
+        'game-difficulty': '難易度',
+        'game-hint': 'ヒント',
+        'game-time': '時間',
+        'game-hint-disabled': '無効',
+        'btn-use-hint': 'ヒントを使う',
+        'btn-check': '答え合わせ',
+        'btn-reset': 'リセット',
+
+        // 比較画面
+        'comparison-user': 'あなたの入力',
+        'comparison-answer': '正解',
+
+        // 手動入力画面
+        'manual-title': '問題を入力してください',
+        'manual-description': '空白のマスは0を入力してください',
+        'btn-solve': 'この問題を解く',
+        'btn-clear': 'クリア',
+
+        // メッセージ
+        'msg-no-hints': 'ヒントはもう使えません',
+        'msg-all-filled': 'すべてのマスが埋まっています',
+        'msg-hint-used': 'ヒントを使用しました',
+        'msg-hint-remaining': '残り',
+        'msg-hint-times': '回',
+        'msg-hint-correct': '間違いを訂正',
+        'msg-hint-determined': '確定可能なマス',
+        'msg-hint-random': 'ランダム',
+        'msg-confirm-answer': 'すべてのマスが埋まっていませんが答え合わせしますか？',
+        'msg-correct': '正解です！おめでとうございます！',
+        'msg-time': '時間',
+        'msg-incorrect': '間違っている箇所があります。正誤を確認してください。',
+        'msg-confirm-reset': 'ゲームをリセットしますか？',
+        'msg-invalid-puzzle': '無効なナンプレパズルです。入力を確認してください。',
+        'msg-solved': '解答を表示しました！',
+        'msg-no-solution': 'このナンプレパズルは解けません',
+        'msg-depth': '仮置き深さ',
+        'msg-depth-over': '以上'
     },
     en: {
+        // App title
+        'app-title': 'Number Place App',
+
+        // Main menu
         'menu-title': 'Select Mode',
-        'menu-play': 'Play Sudoku',
-        'menu-solve': 'Solve Puzzle'
+        'menu-play': 'Play Puzzle',
+        'menu-solve': 'Solve Puzzle',
+
+        // Game setup
+        'setup-title': 'Game Settings',
+        'setup-difficulty': 'Difficulty:',
+        'difficulty-veryeasy': 'Very Easy',
+        'difficulty-easy': 'Easy',
+        'difficulty-medium': 'Medium',
+        'difficulty-hard': 'Hard',
+        'difficulty-custom': 'Custom',
+        'difficulty-veryeasy-desc': 'Very Easy (25-29 cells, depth 0)',
+        'difficulty-easy-desc': 'Easy (30-35 cells, depth 1)',
+        'difficulty-medium-desc': 'Medium (36-45 cells, depth 2)',
+        'difficulty-hard-desc': 'Hard (46-55 cells, depth 3-5)',
+        'difficulty-custom-desc': 'Custom',
+        'setup-empty-cells': 'Empty cells:',
+        'setup-depth': 'Depth:',
+        'setup-hint-enable': 'Enable hints',
+        'setup-hint-limit': 'Hint limit:',
+        'btn-start': 'Start Game',
+        'btn-back': 'Back',
+
+        // Game screen
+        'game-difficulty': 'Difficulty',
+        'game-hint': 'Hint',
+        'game-time': 'Time',
+        'game-hint-disabled': 'Disabled',
+        'btn-use-hint': 'Use Hint',
+        'btn-check': 'Check Answer',
+        'btn-reset': 'Reset',
+
+        // Comparison screen
+        'comparison-user': 'Your Input',
+        'comparison-answer': 'Correct Answer',
+
+        // Manual input screen
+        'manual-title': 'Enter Puzzle',
+        'manual-description': 'Enter 0 for empty cells',
+        'btn-solve': 'Solve This Puzzle',
+        'btn-clear': 'Clear',
+
+        // Messages
+        'msg-no-hints': 'No hints remaining',
+        'msg-all-filled': 'All cells are filled',
+        'msg-hint-used': 'Hint used',
+        'msg-hint-remaining': '',
+        'msg-hint-times': 'remaining',
+        'msg-hint-correct': 'Corrected mistake',
+        'msg-hint-determined': 'Determinable cell',
+        'msg-hint-random': 'Random',
+        'msg-confirm-answer': 'Not all cells are filled. Check answer anyway?',
+        'msg-correct': 'Correct! Congratulations!',
+        'msg-time': 'Time',
+        'msg-incorrect': 'There are errors. Please check.',
+        'msg-confirm-reset': 'Reset the game?',
+        'msg-invalid-puzzle': 'Invalid puzzle. Please check your input.',
+        'msg-solved': 'Solution displayed!',
+        'msg-no-solution': 'This puzzle cannot be solved',
+        'msg-depth': 'Depth',
+        'msg-depth-over': 'or more'
     }
 };
+
+// 翻訳取得ヘルパー関数
+function t(key) {
+    return translations[currentLanguage][key] || key;
+}
 
 // 言語切り替え関数
 function setLanguage(lang) {
@@ -34,6 +165,19 @@ function setLanguage(lang) {
             element.textContent = translations[lang][key];
         }
     });
+
+    // 難易度選択のoption要素を更新
+    const difficultySelect = document.getElementById('difficulty');
+    if (difficultySelect) {
+        const options = difficultySelect.querySelectorAll('option');
+        options.forEach(option => {
+            const value = option.value;
+            const key = `difficulty-${value}-desc`;
+            if (translations[lang][key]) {
+                option.textContent = translations[lang][key];
+            }
+        });
+    }
 
     // アクティブボタンの切り替え
     document.getElementById('lang-ja').classList.toggle('active', lang === 'ja');
@@ -91,12 +235,23 @@ function resetGameUI() {
 document.addEventListener('DOMContentLoaded', () => {
     const hintCheckbox = document.getElementById('hint-enabled');
     const hintLimitGroup = document.getElementById('hint-limit-group');
+    const difficultySelect = document.getElementById('difficulty');
+    const customSettings = document.getElementById('custom-settings');
 
     hintCheckbox.addEventListener('change', (e) => {
         if (e.target.checked) {
             hintLimitGroup.style.display = 'block';
         } else {
             hintLimitGroup.style.display = 'none';
+        }
+    });
+
+    // 難易度選択でカスタム設定の表示/非表示を切り替え
+    difficultySelect.addEventListener('change', (e) => {
+        if (e.target.value === 'custom') {
+            customSettings.style.display = 'block';
+        } else {
+            customSettings.style.display = 'none';
         }
     });
 
@@ -324,26 +479,197 @@ function createVeryEasyPuzzle(completedBoard) {
     return puzzle;
 }
 
+// 候補を取得するヘルパー関数
+function getCandidates(board, row, col) {
+    const candidates = [];
+    for (let num = 1; num <= 9; num++) {
+        if (isValidMove(board, row, col, num)) {
+            candidates.push(num);
+        }
+    }
+    return candidates;
+}
+
+// 難易度測定：必要な仮置き深さを計算
+function measureDifficulty(puzzle, maxDepth = Infinity) {
+    const board = puzzle.map(r => [...r]);
+    return measureDifficultyRecursive(board, 0, maxDepth);
+}
+
+function measureDifficultyRecursive(board, currentDepth, maxDepth) {
+    // 論理的に確定できるマスをすべて埋める
+    let progress = true;
+    while (progress) {
+        progress = false;
+        for (let row = 0; row < 9; row++) {
+            for (let col = 0; col < 9; col++) {
+                if (board[row][col] === 0) {
+                    const candidates = getCandidates(board, row, col);
+                    if (candidates.length === 1) {
+                        board[row][col] = candidates[0];
+                        progress = true;
+                    }
+                }
+            }
+        }
+    }
+
+    // 目標深さに達したら早期終了（これ以上測定する必要なし）
+    if (currentDepth >= maxDepth) {
+        return currentDepth;
+    }
+
+    // 完成したかチェック
+    const emptyCell = findEmptyCell(board);
+    if (!emptyCell) {
+        return currentDepth; // 解けた！
+    }
+
+    // まだ空白がある → 仮置きが必要
+    // 候補が最も少ないマスを選ぶ
+    let minCandidates = 10;
+    let targetCell = null;
+    for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+            if (board[row][col] === 0) {
+                const candidates = getCandidates(board, row, col);
+                if (candidates.length < minCandidates) {
+                    minCandidates = candidates.length;
+                    targetCell = {row, col, candidates};
+                }
+            }
+        }
+    }
+
+    if (!targetCell || targetCell.candidates.length === 0) {
+        return Infinity; // 矛盾
+    }
+
+    // すべての候補を試して、最小の深さを返す
+    let minDepth = Infinity;
+    for (const num of targetCell.candidates) {
+        const testBoard = board.map(r => [...r]);
+        testBoard[targetCell.row][targetCell.col] = num;
+        const depth = measureDifficultyRecursive(testBoard, currentDepth + 1);
+        minDepth = Math.min(minDepth, depth);
+    }
+
+    return minDepth;
+}
+
+// 改善された問題生成：空白マス数と仮置き深さの両方を条件にする
+function createPuzzleWithDifficulty(completedBoard, difficulty, customEmptyCells = null, customDepth = null) {
+    const maxAttempts = 100; // 最大試行回数
+
+    // 難易度に応じた設定
+    let emptyCellsRange, depthRange;
+
+    if (difficulty === 'custom') {
+        // カスタム難易度：ユーザー指定の値を使用
+        const emptyCells = customEmptyCells !== null ? customEmptyCells : 40;
+        const depth = customDepth !== null ? customDepth : 2;
+        emptyCellsRange = {min: emptyCells, max: emptyCells};
+        depthRange = {min: depth, max: depth};
+    } else {
+        switch (difficulty) {
+            case 'veryeasy':
+                emptyCellsRange = {min: 25, max: 29};
+                depthRange = {min: 0, max: 0};
+                break;
+            case 'easy':
+                emptyCellsRange = {min: 30, max: 35};
+                depthRange = {min: 1, max: 1};
+                break;
+            case 'medium':
+                emptyCellsRange = {min: 36, max: 45};
+                depthRange = {min: 2, max: 2};
+                break;
+            case 'hard':
+                emptyCellsRange = {min: 46, max: 55};
+                depthRange = {min: 3, max: 5};
+                break;
+            default:
+                emptyCellsRange = {min: 30, max: 35};
+                depthRange = {min: 1, max: 1};
+        }
+    }
+
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        const puzzle = completedBoard.map(row => [...row]);
+
+        // 目標の空白マス数を決定
+        const targetEmpty = emptyCellsRange.min +
+            Math.floor(Math.random() * (emptyCellsRange.max - emptyCellsRange.min + 1));
+
+        // ランダムにマスを削除
+        const allCells = [];
+        for (let row = 0; row < 9; row++) {
+            for (let col = 0; col < 9; col++) {
+                allCells.push({row, col});
+            }
+        }
+        shuffle(allCells);
+
+        let removed = 0;
+        for (const cell of allCells) {
+            if (removed >= targetEmpty) break;
+
+            const {row, col} = cell;
+            const originalValue = puzzle[row][col];
+            puzzle[row][col] = 0;
+
+            // 削除後も解けるかチェック
+            const testPuzzle = puzzle.map(r => [...r]);
+            if (solveSudoku(testPuzzle)) {
+                removed++;
+            } else {
+                puzzle[row][col] = originalValue;
+            }
+        }
+
+        // 難易度（仮置き深さ）をチェック
+        const depth = measureDifficulty(puzzle);
+
+        // 条件を満たしているかチェック
+        const isValidDepth = depth >= depthRange.min && depth <= depthRange.max;
+
+        if (isValidDepth) {
+            console.log(`問題生成成功: 空白${removed}マス, 深さ${depth}, 試行${attempt + 1}回目`);
+            return puzzle;
+        }
+    }
+
+    // 最大試行回数を超えた場合は、古い方法にフォールバック
+    console.log('最大試行回数を超えたため、簡易モードで生成');
+    return createPuzzle(completedBoard, difficulty);
+}
+
 // ゲーム開始
 function startGame() {
     const difficulty = document.getElementById('difficulty').value;
     hintsEnabled = document.getElementById('hint-enabled').checked;
     hintsRemaining = hintsEnabled ? parseInt(document.getElementById('hint-limit').value) : 0;
 
+    // カスタム難易度の設定を取得
+    let customEmptyCells = null;
+    let customDepth = null;
+    if (difficulty === 'custom') {
+        customEmptyCells = parseInt(document.getElementById('empty-cells').value);
+        customDepth = parseInt(document.getElementById('depth').value);
+    }
+
     // 難易度の表示名を設定
-    const difficultyNames = {
-        'veryeasy': '超簡単',
-        'easy': '簡単',
-        'medium': '普通',
-        'hard': '難しい'
-    };
     const difficultyDisplay = document.getElementById('difficulty-display');
-    difficultyDisplay.textContent = `難易度: ${difficultyNames[difficulty]}`;
+    if (difficulty === 'custom') {
+        difficultyDisplay.textContent = `${t('game-difficulty')}: ${t('difficulty-custom')} (${t('setup-empty-cells')} ${customEmptyCells}, ${t('setup-depth')} ${customDepth})`;
+    } else {
+        difficultyDisplay.textContent = `${t('game-difficulty')}: ${t('difficulty-' + difficulty)}`;
+    }
 
     // パズル生成
     const completedBoard = generateCompleteSudoku();
     currentSolution = completedBoard.map(row => [...row]);
-    currentPuzzle = createPuzzle(completedBoard, difficulty);
+    currentPuzzle = createPuzzleWithDifficulty(completedBoard, difficulty, customEmptyCells, customDepth);
 
     // userSolutionを文字列配列として初期化
     userSolution = Array(9).fill(null).map(() => Array(9).fill(''));
@@ -548,7 +874,7 @@ function handleKeyNavigation(event, row, col) {
 // ヒント機能
 function useHint() {
     if (!hintsEnabled || hintsRemaining <= 0) {
-        document.getElementById('message').textContent = 'ヒントはもう使えません';
+        document.getElementById('message').textContent = t('msg-no-hints');
         return;
     }
 
@@ -561,7 +887,7 @@ function useHint() {
                 const userValue = userSolution[row][col];
                 // 1文字入力されていて、かつ間違っている場合
                 if (userValue.length === 1 && parseInt(userValue) !== currentSolution[row][col]) {
-                    targetCell = {row, col, reason: '間違いを訂正'};
+                    targetCell = {row, col, reason: t('msg-hint-correct')};
                     break;
                 }
             }
@@ -585,7 +911,7 @@ function useHint() {
                     }
                     // 候補が1つしかない場合
                     if (candidates.length === 1) {
-                        targetCell = {row, col, reason: '確定可能なマス'};
+                        targetCell = {row, col, reason: t('msg-hint-determined')};
                         break;
                     }
                 }
@@ -606,12 +932,12 @@ function useHint() {
         }
 
         if (emptyCells.length === 0) {
-            document.getElementById('message').textContent = 'すべてのマスが埋まっています';
+            document.getElementById('message').textContent = t('msg-all-filled');
             return;
         }
 
         const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        targetCell = {row: randomCell.row, col: randomCell.col, reason: 'ランダム'};
+        targetCell = {row: randomCell.row, col: randomCell.col, reason: t('msg-hint-random')};
     }
 
     // ヒントを表示
@@ -630,15 +956,19 @@ function useHint() {
 
     hintsRemaining--;
     updateHintInfo();
-    document.getElementById('message').textContent = `ヒントを使用しました (${targetCell.reason}) (残り${hintsRemaining}回)`;
+    const remaining = currentLanguage === 'ja'
+        ? `${t('msg-hint-remaining')}${hintsRemaining}${t('msg-hint-times')}`
+        : `${hintsRemaining} ${t('msg-hint-times')}`;
+    document.getElementById('message').textContent = `${t('msg-hint-used')} (${targetCell.reason}) (${remaining})`;
 }
 
 function updateHintInfo() {
     const hintInfo = document.getElementById('hint-info');
     if (hintsEnabled) {
-        hintInfo.textContent = `ヒント: ${hintsRemaining}回`;
+        const times = currentLanguage === 'ja' ? `${hintsRemaining}${t('msg-hint-times')}` : `${hintsRemaining} ${t('msg-hint-times')}`;
+        hintInfo.textContent = `${t('game-hint')}: ${times}`;
     } else {
-        hintInfo.textContent = 'ヒント: 無効';
+        hintInfo.textContent = `${t('game-hint')}: ${t('game-hint-disabled')}`;
         document.getElementById('hint-btn').disabled = true;
     }
 }
@@ -750,7 +1080,7 @@ function checkSolution() {
 
     // すべてのマスが埋まっていない場合、確認ダイアログを表示
     if (!allFilled) {
-        const confirmed = confirm('すべてのマスが埋まっていませんが答え合わせしますか？');
+        const confirmed = confirm(t('msg-confirm-answer'));
         if (!confirmed) {
             return;
         }
@@ -814,7 +1144,7 @@ function checkSolution() {
     // 答え合わせ結果
     if (allFilled && isValidSolution) {
         stopTimer();
-        messageEl.textContent = `正解です！おめでとうございます！ (時間: ${document.getElementById('time').textContent})`;
+        messageEl.textContent = `${t('msg-correct')} (${t('msg-time')}: ${document.getElementById('time').textContent})`;
         messageEl.className = 'message-success';
 
         // すべてのセルを読み取り専用に
@@ -841,14 +1171,14 @@ function checkSolution() {
         // 正解グリッドを作成（生成された答えを表示）
         createComparisonGrid('answer-grid', currentSolution, false);
 
-        messageEl.textContent = '間違っている箇所があります。正誤を確認してください。';
+        messageEl.textContent = t('msg-incorrect');
         messageEl.className = 'message-error';
     }
 }
 
 // ゲームリセット
 function resetGame() {
-    const confirmed = confirm('ゲームをリセットしますか？');
+    const confirmed = confirm(t('msg-confirm-reset'));
     if (!confirmed) return;
 
     // userSolutionを文字列配列として再初期化
@@ -939,7 +1269,7 @@ function solvePuzzle() {
             if (num !== 0) {
                 inputBoard[row][col] = 0; // 一時的に0にして重複チェック
                 if (!isValidMove(inputBoard, row, col, num)) {
-                    document.getElementById('input-message').textContent = '無効な数独パズルです。入力を確認してください。';
+                    document.getElementById('input-message').textContent = t('msg-invalid-puzzle');
                     document.getElementById('input-message').className = 'message-error';
                     inputBoard[row][col] = num; // 元に戻す
                     return;
@@ -949,7 +1279,7 @@ function solvePuzzle() {
         }
     }
 
-    // パズルを解く
+    // まずパズルを解く
     const solutionBoard = inputBoard.map(row => [...row]);
     if (solveSudoku(solutionBoard)) {
         // 解答を表示
@@ -964,10 +1294,24 @@ function solvePuzzle() {
                 index++;
             }
         }
-        document.getElementById('input-message').textContent = '解答を表示しました！';
+
+        // 解答表示後、難易度（仮置き深さ）を測定（最大6まで）
+        document.getElementById('input-message').textContent = t('msg-solved') + ' (測定中...)';
         document.getElementById('input-message').className = 'message-success';
+
+        // 少し遅延させてUIを更新
+        setTimeout(() => {
+            const depth = measureDifficulty(inputBoard, 6);
+            let depthText = '';
+            if (depth > 6) {
+                depthText = ` (${t('msg-depth')}: 7${t('msg-depth-over')})`;
+            } else {
+                depthText = ` (${t('msg-depth')}: ${depth})`;
+            }
+            document.getElementById('input-message').textContent = t('msg-solved') + depthText;
+        }, 10);
     } else {
-        document.getElementById('input-message').textContent = 'この数独パズルは解けません';
+        document.getElementById('input-message').textContent = t('msg-no-solution');
         document.getElementById('input-message').className = 'message-error';
     }
 }
