@@ -409,23 +409,15 @@ function handleInput(event, row, col) {
     // 文字数に応じてフォントサイズを調整
     adjustFontSize(event.target);
 
-    // バリデーション（1文字の場合のみ）
+    // 背景色の設定（ゲーム中はヒントにならないように白/薄ピンクのみ）
     event.target.classList.remove('invalid');
     event.target.classList.remove('candidate');
 
-    if (value.length === 0) {
-        // 空白の場合は何もしない
-    } else if (value.length === 1) {
-        const numValue = parseInt(value);
-        // 一時的に数値配列を作成してチェック
-        const tempBoard = userSolution.map(r => r.map(c => c.length === 1 ? parseInt(c) : 0));
-        if (!isValidMove(tempBoard, row, col, numValue)) {
-            event.target.classList.add('invalid');
-        }
-    } else {
+    if (value.length > 1) {
         // 複数候補の場合は薄ピンク
         event.target.classList.add('candidate');
     }
+    // 1文字以下の場合は白（何もしない）
 }
 
 // フォントサイズ調整
