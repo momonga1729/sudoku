@@ -7,6 +7,38 @@ let hintsRemaining = 3;
 let timerInterval = null;
 let seconds = 0;
 let editMode = {}; // 編集モード管理 (key: "row-col", value: true/false)
+let currentLanguage = 'ja'; // 現在の言語
+
+// 翻訳データ
+const translations = {
+    ja: {
+        'menu-title': 'モード選択',
+        'menu-play': '問題を解く',
+        'menu-solve': '問題を入力して解かせる'
+    },
+    en: {
+        'menu-title': 'Select Mode',
+        'menu-play': 'Play Sudoku',
+        'menu-solve': 'Solve Puzzle'
+    }
+};
+
+// 言語切り替え関数
+function setLanguage(lang) {
+    currentLanguage = lang;
+
+    // すべての翻訳対象要素を更新
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // アクティブボタンの切り替え
+    document.getElementById('lang-ja').classList.toggle('active', lang === 'ja');
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+}
 
 // 画面遷移関数
 function showMainMenu() {
@@ -67,6 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hintLimitGroup.style.display = 'none';
         }
     });
+
+    // 初期言語を日本語に設定
+    setLanguage('ja');
 });
 
 // タイマー機能
@@ -294,6 +329,16 @@ function startGame() {
     const difficulty = document.getElementById('difficulty').value;
     hintsEnabled = document.getElementById('hint-enabled').checked;
     hintsRemaining = hintsEnabled ? parseInt(document.getElementById('hint-limit').value) : 0;
+
+    // 難易度の表示名を設定
+    const difficultyNames = {
+        'veryeasy': '超簡単',
+        'easy': '簡単',
+        'medium': '普通',
+        'hard': '難しい'
+    };
+    const difficultyDisplay = document.getElementById('difficulty-display');
+    difficultyDisplay.textContent = `難易度: ${difficultyNames[difficulty]}`;
 
     // パズル生成
     const completedBoard = generateCompleteSudoku();

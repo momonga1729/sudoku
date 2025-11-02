@@ -12,9 +12,13 @@
 
         <!-- メインメニュー -->
         <div id="main-menu" class="screen">
-            <h2>モード選択</h2>
-            <button onclick="showGameSetup()">問題を解く</button>
-            <button onclick="showManualInput()">問題を入力して解かせる</button>
+            <div class="language-selector">
+                <button onclick="setLanguage('ja')" id="lang-ja">日本語</button>
+                <button onclick="setLanguage('en')" id="lang-en">English</button>
+            </div>
+            <h2 data-i18n="menu-title">モード選択</h2>
+            <button onclick="showGameSetup()" data-i18n="menu-play">問題を解く</button>
+            <button onclick="showManualInput()" data-i18n="menu-solve">問題を入力して解かせる</button>
         </div>
 
         <!-- ゲーム設定画面 -->
@@ -50,6 +54,7 @@
         <!-- ゲーム画面 -->
         <div id="game-screen" class="screen hidden">
             <div class="game-info">
+                <div id="difficulty-display"></div>
                 <div id="hint-info"></div>
                 <div id="timer">時間: <span id="time">00:00</span></div>
             </div>
