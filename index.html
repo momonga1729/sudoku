@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数独アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>数独アプリ</h1>
+
+        <!-- メインメニュー -->
+        <div id="main-menu" class="screen">
+            <h2>モード選択</h2>
+            <button onclick="showGameSetup()">問題を解く</button>
+            <button onclick="showManualInput()">問題を入力して解かせる</button>
+        </div>
+
+        <!-- ゲーム設定画面 -->
+        <div id="game-setup" class="screen hidden">
+            <h2>ゲーム設定</h2>
+
+            <div class="setting-group">
+                <label for="difficulty">難易度:</label>
+                <select id="difficulty">
+                    <option value="veryeasy">超簡単 (すべて確定可能・一意解保証)</option>
+                    <option value="easy">簡単 (30-35個の空白・複数解の可能性あり)</option>
+                    <option value="medium">普通 (36-45個の空白・複数解の可能性あり)</option>
+                    <option value="hard">難しい (46-55個の空白・複数解の可能性あり)</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="hint-enabled" checked>
+                    ヒント機能を有効にする
+                </label>
+            </div>
+
+            <div class="setting-group" id="hint-limit-group">
+                <label for="hint-limit">ヒント回数:</label>
+                <input type="number" id="hint-limit" min="1" max="10" value="3">
+            </div>
+
+            <button onclick="startGame()">ゲーム開始</button>
+            <button onclick="showMainMenu()">戻る</button>
+        </div>
+
+        <!-- ゲーム画面 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-info">
+                <div id="hint-info"></div>
+                <div id="timer">時間: <span id="time">00:00</span></div>
+            </div>
+
+            <div id="sudoku-grid"></div>
+
+            <!-- 答え表示用の比較エリア -->
+            <div id="solution-comparison" class="hidden">
+                <div class="comparison-container">
+                    <div class="comparison-grid-wrapper">
+                        <h3>あなたの入力</h3>
+                        <div id="user-grid"></div>
+                    </div>
+                    <div class="comparison-grid-wrapper">
+                        <h3>正解</h3>
+                        <div id="answer-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button onclick="useHint()" id="hint-btn">ヒントを使う</button>
+                <button onclick="checkSolution()">答え合わせ</button>
+                <button onclick="resetGame()">リセット</button>
+                <button onclick="showGameSetup()">戻る</button>
+            </div>
+
+            <div id="message"></div>
+        </div>
+
+        <!-- 手動入力画面 -->
+        <div id="manual-input" class="screen hidden">
+            <h2>問題を入力してください</h2>
+            <p>空白のマスは0を入力してください</p>
+
+            <div id="input-grid"></div>
+
+            <div class="game-controls">
+                <button onclick="solvePuzzle()">この問題を解く</button>
+                <button onclick="clearInputGrid()">クリア</button>
+                <button onclick="showMainMenu()">戻る</button>
+            </div>
+
+            <div id="input-message"></div>
+        </div>
+    </div>
+
+    <script src="sudoku.js"></script>
+</body>
+</html>
