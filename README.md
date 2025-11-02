@@ -1,8 +1,10 @@
-# Sudoku Web App
+# Number Place (Sudoku) Web App
 
 [日本語版はこちら](#日本語版)
 
-A browser-based Sudoku web application with multiple difficulty levels and smart features.
+A browser-based Number Place (Sudoku) puzzle web application with multiple difficulty levels and smart features.
+
+*Note: "数独" is a registered trademark of Nikoli Co., Ltd. This application uses the generic term "Number Place".*
 
 ## Features
 
@@ -71,7 +73,9 @@ MIT License
 
 # 日本語版
 
-ブラウザで動作するナンプレ（Number Place）Webアプリケーションです。
+ブラウザで動作するナンプレ（数独パズル）Webアプリケーションです。
+
+*注：「数独」は株式会社ニコリの登録商標です。本アプリケーションでは一般名称である「ナンバープレース（ナンプレ）」を使用しています。*
 
 ## 特徴
 
